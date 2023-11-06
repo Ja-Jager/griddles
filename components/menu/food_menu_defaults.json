@@ -1,0 +1,80 @@
+{
+    "food_menu": [
+        {
+            "name": "雞肶",
+            "temperature": {
+                "target": 449.82
+            },
+            "countdown": {
+                "total": 600,
+                "timer_force_heat": 0,
+                "buzzer": [
+                    30,
+                    60,
+                    180,
+                    200
+                ]
+            }
+        },
+        {
+            "name": "雞全翼",
+            "temperature": {
+                "unit": "fahrenheit",
+                "target": 394.26
+            },
+            "countdown": {
+                "total": 480,
+                "timer_force_heat": 0,
+                "buzzer": [
+                    60,
+                    150
+                ]
+            }
+        },
+        {
+            "name": "豬扒",
+            "temperature": {
+                "unit": "fahrenheit",
+                "target": 435.93
+            },
+            "countdown": {
+                "total": 420,
+                "timer_force_heat": 0,
+                "buzzer": [
+                    60,
+                    150
+                ]
+            }
+        },
+        {
+            "name": "薯仔",
+            "temperature": {
+                "unit": "fahrenheit",
+                "target": 449.82
+            },
+            "countdown": {
+                "total": 240,
+                "timer_force_heat": 0,
+                "buzzer": [
+                    60,
+                    150
+                ]
+            }
+        },
+        {
+            "name": "春卷",
+            "temperature": {
+                "unit": "fahrenheit",
+                "target": 394.26
+            },
+            "countdown": {
+                "total": 240,
+                "timer_force_heat": 0,
+                "buzzer": [
+                    60,
+                    150
+                ]
+            }
+        }
+    ]
+}

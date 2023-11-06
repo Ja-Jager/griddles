@@ -1,0 +1,11 @@
+menu "Brandon Fryer"
+
+    config SIMULATED_TEMPERATURE
+        bool "Simulate temperature readings"
+        default "n"
+        help
+            If enabled, temperature readings will be simulated by 
+            subtracting 100 degrees Celsius from the actual temperature reading. 
+            If disabled, the actual temperature reading will be used.
+
+endmenu # Common Brandon Fryer Settings

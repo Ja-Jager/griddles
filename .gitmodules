@@ -1,0 +1,15 @@
+[submodule "components/lvgl"]
+	path = components/lvgl
+	url = https://github.com/lvgl/lvgl.git
+[submodule "components/esp-relay-software-pwm"]
+	path = components/esp-relay-software-pwm
+	url = https://github.com/BrandonElectronic/esp-relay-software-pwm
+[submodule "components/esp-component-74HC165"]
+	path = components/esp-component-74HC165
+	url = https://github.com/BrandonElectronic/esp-component-74HC165
+[submodule "components/esp-ntc"]
+	path = components/esp-ntc
+	url = https://github.com/BrandonElectronic/esp-ntc.git
+[submodule "components/ws_7inch"]
+	path = components/ws_7inch
+	url = https://github.com/BrandonElectronic/ws_7inch.git

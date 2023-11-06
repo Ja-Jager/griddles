@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "author": "Ambitious maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-custom-board", "id": "board", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 186.67,
+      "left": 160.84,
+      "attrs": { "color": "green", "key": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 187.87,
+      "left": 262.38,
+      "attrs": { "color": "blue", "key": "2" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 186.07,
+      "left": 361.97,
+      "attrs": { "color": "yellow", "key": "3" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": 186.06,
+      "left": 463.08,
+      "attrs": { "color": "black", "key": "4" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 290.16, "left": -243.78, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay2", "top": 219.44, "left": -243.65, "attrs": {} },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": 19.58,
+      "left": 255.39,
+      "attrs": { "digits": "4" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn5",
+      "top": 131.16,
+      "left": -222.78,
+      "attrs": { "color": "red", "key": "p" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 269.18, "left": 567.51, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 381.03, "left": -267.98, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 196.78, "left": -333.08, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": 275.77, "left": -334.58, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -46.82,
+      "left": -358.3,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc2",
+      "top": 43.17,
+      "left": -358.76,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "btn1:2.r", "gnd1:GND", "green", [ "h0.39", "v111.28" ] ],
+    [ "btn2:2.r", "gnd1:GND", "green", [ "h-1.24", "v47.3" ] ],
+    [ "btn3:2.r", "gnd1:GND", "green", [ "h1.91", "v50.25" ] ],
+    [ "btn4:2.r", "gnd1:GND", "green", [ "h1.38", "v48.19" ] ],
+    [ "relay2:GND", "gnd2:GND", "black", [ "h0" ] ],
+    [ "relay1:GND", "gnd2:GND", "black", [ "h0" ] ],
+    [ "vcc1:VCC", "relay2:VCC", "red", [ "v0" ] ],
+    [ "vcc2:VCC", "relay1:VCC", "red", [ "v0" ] ],
+    [ "btn5:2.r", "gnd2:GND", "green", [ "h79.67", "v215.79" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,16 @@
+{
+  "codename": "NumberDotFont",
+  "ttf_path": "\\assets\\fonts\\number_font.ttf",
+  "bin_path": "\\assets\\fonts\\ui_font_NumberDotFont.bin",
+  "c_path": "\\assets\\fonts\\ui_font_NumberDotFont.c",
+  "cfg_path": "\\assets\\fonts\\ui_font_NumberDotFont.fcfg",
+  "size": 70,
+  "bpp": 8,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "°",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}
