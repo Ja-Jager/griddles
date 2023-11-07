@@ -48,16 +48,16 @@ void task_pid_calculate(void *ptr) // 融化参数
         pid_set.SetTemperature = PID_set_temperature_read() - 273.15; //kelvin to celsius
         // printf("%.2f\n",pid_set.SetTemperature);
         pid_set.umin = pid_set.SetTemperature - Umin_range;
-        ESP_LOGI("Set Temperature", "target Temperature celsius = %.2f°C", pid_set.SetTemperature);
+        // ESP_LOGI("Set Temperature", "target Temperature celsius = %.2f°C", pid_set.SetTemperature);
 
         #if CONFIG_SIMULATED_TEMPERATURE
 			now_temperature = NTC_thermistor_queue_read() - 173.15; // 办公室测温
-		#else
+        #else
 			now_temperature = NTC_thermistor_queue_read() - 273.15; // 真实测温
             // now_temperature = 200;
 		#endif
 
-        ESP_LOGI("Now Temperature", "now Temperature = %.2f°C", now_temperature); //kelvin to celsius
+        // ESP_LOGI("Now Temperature", "now Temperature = %.2f°C", now_temperature); //kelvin to celsius
         Error = pid_set.SetTemperature - now_temperature; // 先计算偏差
         
         // printf("SumError:%.2f\n",SumError);  
@@ -111,7 +111,7 @@ void task_pid_calculate(void *ptr) // 融化参数
             PWM_var = Duty_MIN;
         }
         PID_queue_write(PWM_var);
-        ESP_LOGI("PWM_var", "PWM_var = %.2f%%", (float) PWM_var/255*100);
+        // ESP_LOGI("PWM_var", "PWM_var = %.2f%%", (float) PWM_var/255*100);
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }

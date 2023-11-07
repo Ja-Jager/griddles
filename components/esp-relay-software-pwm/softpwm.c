@@ -17,7 +17,7 @@ void task_softpwm(void *arg)
     while (1)
     {
         softpwm.dutypercent = (int)round(PID_queue_read() / 25.5);
-        printf("%d\n", softpwm.dutypercent);
+        // printf("%d\n", softpwm.dutypercent);
         for (size_t i = 0; i < (int)softpwm.dutypercent; i++)
         {
             gpio_set_level((gpio_num_t)softpwm.PWMPin, 1);

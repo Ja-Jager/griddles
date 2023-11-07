@@ -12,7 +12,6 @@
 #include "Count_zero.h"
 #include "manual_mode.h"
 #include "NTC_thermistor.h"
-// #include "esp-ntc.h"
 #include "PID.h"
 // #include "pwm.h"
 // #include "menu.h"
@@ -29,9 +28,6 @@
 #include "cJSON.h"
 #include "ui_events.c"
 #include "buzzer.h"
-#include "pcf8575_liftTube_spillOil_overHeat.h"
-#include "pcf8575_escalator.h"
-#include "pcf8575_button_heat_mode.h"
 // #include "lv_example_textarea_3.c"
 // #include "lv_example_textarea_1.c"
 // #include "lv_example_keyboard_1.c"
@@ -39,7 +35,7 @@
 #undef LVGL_BENCHMARK
 
 #define TAG "ESP-EXAMPLE"
-#define VERSION_NUMBER "v1.0.1"
+#define VERSION_NUMBER "v1.0.2"
 
 /*******************************************************************************
  * Private functions

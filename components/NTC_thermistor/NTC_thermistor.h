@@ -1,43 +1,25 @@
 #ifndef NTC_THERMISTOR_H_
 #define NTC_THERMISTOR_H_
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include "esp_log.h"
-// #include "freertos/FreeRTOS.h"
-// #include "freertos/task.h"
-// #include "freertos/queue.h"
-// #include "math.h"
-// #include "esp_adc/adc_oneshot.h"
-// #include "esp_adc/adc_cali.h"
-// #include "esp_adc/adc_cali_scheme.h"
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <errno.h>
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
-// #include "driver/adc.h"
-// #include "esp_adc_cal.h"
-#include "esp_adc/adc_oneshot.h"
-#include "esp_adc/adc_cali.h"
-#include "esp_adc/adc_cali_scheme.h"
-#include "soc/soc_caps.h"
+#include "driver/adc.h"
+#include "esp_adc_cal.h"
 #include "math.h"
 
-//ADC Calibration
+// ADC Calibration
 #if CONFIG_IDF_TARGET_ESP32
-#define ADC_EXAMPLE_CALI_SCHEME     ESP_ADC_CAL_VAL_EFUSE_VREF
+#define ADC_EXAMPLE_CALI_SCHEME ESP_ADC_CAL_VAL_EFUSE_VREF
 #elif CONFIG_IDF_TARGET_ESP32S2
-#define ADC_EXAMPLE_CALI_SCHEME     ESP_ADC_CAL_VAL_EFUSE_TP
+#define ADC_EXAMPLE_CALI_SCHEME ESP_ADC_CAL_VAL_EFUSE_TP
 #elif CONFIG_IDF_TARGET_ESP32C3
-#define ADC_EXAMPLE_CALI_SCHEME     ESP_ADC_CAL_VAL_EFUSE_TP
+#define ADC_EXAMPLE_CALI_SCHEME ESP_ADC_CAL_VAL_EFUSE_TP
 #elif CONFIG_IDF_TARGET_ESP32S3
-#define ADC_EXAMPLE_CALI_SCHEME     ESP_ADC_CAL_VAL_EFUSE_TP_FIT
+#define ADC_EXAMPLE_CALI_SCHEME ESP_ADC_CAL_VAL_EFUSE_TP_FIT
 #endif
-
 
 #define BETA 3950
 /** Maximum of the output ADC raw digital reading result,
@@ -53,16 +35,7 @@
 
 #define WIDTH_BIT 13
 
-// #define ADC_CALI_SCHEME_LINE_FITTING_SUPPORTED    1
-// #define ADC_CALI_SCHEME_CURVE_FITTING_SUPPORTED    0
-
-// static esp_adc_cal_characteristics_t adc1_chars;
-
-typedef struct
-{
-    adc_oneshot_unit_handle_t adc_unit_handle;
-    adc_cali_handle_t adc1_cali_handle;
-} NTC_task_need;
+static esp_adc_cal_characteristics_t adc1_chars;
 
 /**
  * @brief Initializes the NTC thermistor functionality.
@@ -121,7 +94,5 @@ void NTC_thermistor_queue_write(double temperature);
  * @see https://www.thinksrs.com/downloads/programs/therm%20calc/ntccalibrator/ntccalculator.html
  */
 double temperature_calculation_kelvin(uint32_t calibrated_voltage);
-
-bool example_adc_calibration_init(adc_unit_t unit, adc_atten_t atten, adc_cali_handle_t *out_handle);
 
 #endif /* MAIN_MAX6675_H_ */

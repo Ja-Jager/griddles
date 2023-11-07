@@ -16,9 +16,6 @@
 #include "string.h"
 #include "nvs_component.h"
 #include "esp_log.h"
-#include "pcf8575_liftTube_spillOil_overHeat.h"
-#include "pcf8575_escalator.h"
-#include "pcf8575_button_heat_mode.h"
 
 QueueHandle_t handle_queue_locate_language;
 
@@ -70,12 +67,10 @@ void MenuStartCookingButtonManual(lv_event_t *e)
 	if(manual_mode_start_mailbox_write() == mode_manual)
 	{
 		lv_obj_whether_ban_animation(ui_BarManualTemperature1, 1);
-		printf("can start\n");
 	}
 	else
 	{
 		lv_obj_whether_ban_animation(ui_BarManualTemperature1, 0);
-		printf("can stop\n");
 	}
 }
 
@@ -291,21 +286,21 @@ void DemoModeOnOFF(lv_event_t * e)
 {
 
 	// Your code here
-	enum use_state current_use_state = demo_mode;
-	lv_obj_t * demo_mode_switch = lv_event_get_target(e);
-	bool demo_mode_on = lv_obj_has_state(demo_mode_switch, LV_STATE_CHECKED); // with `true` being on
-	if(demo_mode_on)
-	{
-		current_use_state = demo_mode;
-		// use_state_write(current_use_state);
-		// 更改 enum 为 demo_mode
-	}
-	else
-	{
-		current_use_state = production_mode;
-		// use_state_write(current_use_state);
-		// 更改 enum 为 production_mode
-	}
+	// enum use_state current_use_state = demo_mode;
+	// lv_obj_t * demo_mode_switch = lv_event_get_target(e);
+	// bool demo_mode_on = lv_obj_has_state(demo_mode_switch, LV_STATE_CHECKED); // with `true` being on
+	// if(demo_mode_on)
+	// {
+	// 	current_use_state = demo_mode;
+	// 	// use_state_write(current_use_state);
+	// 	// 更改 enum 为 demo_mode
+	// }
+	// else
+	// {
+	// 	current_use_state = production_mode;
+	// 	// use_state_write(current_use_state);
+	// 	// 更改 enum 为 production_mode
+	// }
 }
 
 void Change_Language_From_Settings(lv_event_t * e)
@@ -657,37 +652,37 @@ void DropFoodReminderDone(lv_event_t * e)
 // 手动模式升降机选择
 void CallDropdownMotorLeftRightManual(lv_event_t * e)
 {
-	// Your code here
-	u_int16_t manual_motor_switch_case = 2;
-	if(PID_mode_read() == mode_null)
-	{
-		manual_motor_switch_case = lv_dropdown_get_selected(ui_DropdownMotorLeftRightManual);
-		printf("manual_motor_switch_case = %d\n", manual_motor_switch_case);
-		switch(manual_motor_switch_case)
-		{
-			case 0: motor_left_right_queue_write(motor_left); break;
-			case 1: motor_left_right_queue_write(motor_right); break;
-			case 2: motor_left_right_queue_write(motor_both); break;
-		}
-	}	
+	// // Your code here
+	// u_int16_t manual_motor_switch_case = 2;
+	// if(PID_mode_read() == mode_null)
+	// {
+	// 	manual_motor_switch_case = lv_dropdown_get_selected(ui_DropdownMotorLeftRightManual);
+	// 	printf("manual_motor_switch_case = %d\n", manual_motor_switch_case);
+	// 	switch(manual_motor_switch_case)
+	// 	{
+	// 		case 0: motor_left_right_queue_write(motor_left); break;
+	// 		case 1: motor_left_right_queue_write(motor_right); break;
+	// 		case 2: motor_left_right_queue_write(motor_both); break;
+	// 	}
+	// }	
 }
 
 // 自动模式升降机选择
 void CallDropdownMotorLeftRightAuto(lv_event_t * e)
 {
-	// Your code here
-	u_int16_t auto_motor_switch_case = 2;
-	if(PID_mode_read() == mode_null)
-	{
-		auto_motor_switch_case = lv_dropdown_get_selected(ui_DropdownMotorLeftRightAuto);
-		printf("auto_motor_switch_case = %d\n", auto_motor_switch_case);
-		switch(auto_motor_switch_case)
-		{
-			case 0: motor_left_right_queue_write(motor_left); break;
-			case 1: motor_left_right_queue_write(motor_right); break;
-			case 2: motor_left_right_queue_write(motor_both); break;
-		}
-	}
+	// // Your code here
+	// u_int16_t auto_motor_switch_case = 2;
+	// if(PID_mode_read() == mode_null)
+	// {
+	// 	auto_motor_switch_case = lv_dropdown_get_selected(ui_DropdownMotorLeftRightAuto);
+	// 	printf("auto_motor_switch_case = %d\n", auto_motor_switch_case);
+	// 	switch(auto_motor_switch_case)
+	// 	{
+	// 		case 0: motor_left_right_queue_write(motor_left); break;
+	// 		case 1: motor_left_right_queue_write(motor_right); break;
+	// 		case 2: motor_left_right_queue_write(motor_both); break;
+	// 	}
+	// }
 }
 
 esp_err_t lv_obj_whether_ban_animation(const lv_obj_t * obj, bool animation_will_be_ban)

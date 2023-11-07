@@ -265,7 +265,7 @@ void app_main(void)
 
     // xTaskCreate(memory_monitor_task, "memory_monitor_task", 1024 * 4, NULL, 2, NULL);
 
-    input_task_create();
+    // input_task_create();
 
 #ifndef LVGL_BENCHMARK
     xTaskCreate(UI_task, "UI_task", 1024 * 16, NULL, 2, NULL);
