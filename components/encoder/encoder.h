@@ -31,8 +31,8 @@ typedef enum key_state
 //     BUTTON_AUTO_READY_MODE,         /**< Auto ready mode */
 // } button_mode_t;
 
-#define ENCODER_A_PIN 16                                     /* 编码器A端 */
-#define ENCODER_B_PIN 15                                     /* 编码器B端 */
+#define ENCODER_A_PIN 5                                     /* 编码器A端 */
+#define ENCODER_B_PIN 6                                     /* 编码器B端 */
 // #define ENCODER_PUSH_PIN 14                                  /* 编码器KEY端 */
 
 /**
