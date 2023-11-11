@@ -1,7 +1,8 @@
 #include "Count_zero.h"
 #include "menu.h"
 #include "PID.h"
-#include "NTC_thermistor.h"
+// #include "NTC_thermistor.h"
+#include "Max6675.h"
 #include "buzzer.h"
 // #include "ui_events.h"
 

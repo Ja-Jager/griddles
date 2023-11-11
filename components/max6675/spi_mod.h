@@ -3,8 +3,8 @@
 
 #define DMA_CHAN SPI_DMA_CH_AUTO
 
-#define MDIO 7
-#define SCK 5
+#define MDIO 14
+#define SCK 16
 #define CSA 15
 
 #define PIN_NUM_DC 26

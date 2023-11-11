@@ -5,7 +5,8 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"
 #include "esp_log.h"
-#include "NTC_thermistor.h"
+// #include "NTC_thermistor.h"
+#include "Max6675.h"
 #include "math.h"
 #include "Count_zero.h"
 

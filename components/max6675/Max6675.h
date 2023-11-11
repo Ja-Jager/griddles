@@ -24,8 +24,8 @@
 
 /* 需要用到的引脚 */
 #define CSA 15
-#define SCK 5
-#define MDIO 7
+#define SCK 16
+#define MDIO 14
 
 /* 设置片选信号 CSn 和时钟信号 SCK 对应引脚为输出状态 */
 /* 设置数据信号 MDIO 对应引脚为输入状态 */
@@ -38,8 +38,8 @@
 
 #define MAX6675_TAG "MAX6675"
 
-void Main_temperature_write(int16_t data);
-int16_t Main_temperature_read(void); // 从队列读
+void NTC_thermistor_queue_write(double temperature);
+double NTC_thermistor_queue_read(void); // 从队列读
 
 void Max6675_init(void); /* Max6675 初始化函数 */
 

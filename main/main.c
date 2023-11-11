@@ -228,7 +228,8 @@ void app_main(void)
     menu_test_for_first_power_on("food_menu_nvs");
 
     // /* Initialize NTC_thermistor */
-    NTC_thermistor_init();
+    // NTC_thermistor_init();
+    Max6675_init();
 
     // /* Initialize PID calculate */
     PID_calculate_init();

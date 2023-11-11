@@ -3,7 +3,8 @@
 // #include "ui_events.c"
 // #include "main.c" 
 #include "PID.h"
-#include "NTC_thermistor.h"
+// #include "NTC_thermistor.h"
+#include "Max6675.h"
 #include "buzzer.h"
 
 QueueHandle_t manual_start_state_Mailbox; // 倒计时开始

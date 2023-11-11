@@ -11,7 +11,8 @@
 #include "ui/ui_helpers.h"
 #include "Count_zero.h"
 #include "manual_mode.h"
-#include "NTC_thermistor.h"
+// #include "NTC_thermistor.h"
+#include "Max6675.h"
 #include "PID.h"
 // #include "pwm.h"
 // #include "menu.h"
@@ -35,7 +36,7 @@
 #undef LVGL_BENCHMARK
 
 #define TAG "ESP-EXAMPLE"
-#define VERSION_NUMBER "v1.0.2"
+#define VERSION_NUMBER "v1.1.0"
 
 /*******************************************************************************
  * Private functions

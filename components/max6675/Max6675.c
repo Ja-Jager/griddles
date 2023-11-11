@@ -5,7 +5,7 @@
 
 QueueHandle_t Main_temperature_Mailbox; // 主发热管温度
 TaskHandle_t xHandle_main = NULL; // 主发热管传参
-int16_t Max6675_Read_Main = 0;        /* 主电热丝 Max6675温度 */
+double Max6675_Read_Main = 0;        /* 主电热丝 Max6675温度 */
 
 /*——————————————————————————————
  * 函数名称：temp_main_task
@@ -17,7 +17,7 @@ int16_t Max6675_Read_Main = 0;        /* 主电热丝 Max6675温度 */
 
 void temp_main_task(void *pvParams) // 主发热管温度检测任务
 {
-    Main_temperature_write(22);
+    NTC_thermistor_queue_write(295.15);
 
     spi_device_handle_t spi = (spi_device_handle_t)pvParams;
     uint16_t data;
@@ -28,10 +28,8 @@ void temp_main_task(void *pvParams) // 主发热管温度检测任务
             .rx_buffer = &data,
             .length = 16,
             .rxlength = 16};
-    int16_t temperature_Unit = 1;
     while (1)
     {
-        temperature_Unit = 1;
         spi_device_acquire_bus(spi, portMAX_DELAY);
         spi_device_transmit(spi, &tM);
         spi_device_release_bus(spi);
@@ -46,15 +44,8 @@ void temp_main_task(void *pvParams) // 主发热管温度检测任务
         {
             res >>= 3;
             Max6675_Read_Main = res * 0.25;
-            if (temperature_Unit == 0)
-            {
-                Max6675_Read_Main = Max6675_Read_Main * 1.8 + 32 + 0.5;
-                Main_temperature_write(Max6675_Read_Main);
-            }
-            else if (temperature_Unit == 1)
-            {
-                Main_temperature_write(Max6675_Read_Main);
-            }
+            Max6675_Read_Main = Max6675_Read_Main + 273.15;
+            NTC_thermistor_queue_write(Max6675_Read_Main);
             // ESP_LOGI(MAX6675_TAG, "SPI res = %d main_temp = %f\n", res,res * 0.25);
         }
         vTaskDelay(pdMS_TO_TICKS(1000));
@@ -70,7 +61,7 @@ void temp_main_task(void *pvParams) // 主发热管温度检测任务
  ——————————————————————————————*/
 void Max6675_init(void)
 {
-    Main_temperature_Mailbox = xQueueCreate(1, sizeof(int16_t));
+    Main_temperature_Mailbox = xQueueCreate(1, sizeof(double));
 
     TEM_CSA_OUT;
     TEM_SCK_OUT;
@@ -81,14 +72,14 @@ void Max6675_init(void)
     xTaskCreate(temp_main_task, "temperature_main_task", 1024*8, spi_CSA, 1, &xHandle_main);
 }
 
-// void Main_temperature_write(int16_t data)
-// {
-//     xQueueOverwrite(Main_temperature_Mailbox, &Max6675_Read_Main);
-// }
-// int16_t Main_temperature_read(void) // 从队列读
-// {
-//     int16_t Main_temperature;
-//     xQueuePeek(Main_temperature_Mailbox, &Main_temperature, 0);
-//     return Main_temperature;
-// }
+void NTC_thermistor_queue_write(double temperature)
+{
+    xQueueOverwrite(Main_temperature_Mailbox, &temperature);
+}
+double NTC_thermistor_queue_read(void) // 从队列读
+{
+    double Main_temperature;
+    xQueuePeek(Main_temperature_Mailbox, &Main_temperature, 0);
+    return Main_temperature;
+}
 
