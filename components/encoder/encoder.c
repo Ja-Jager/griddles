@@ -97,65 +97,6 @@ static void encoder_task(void *pvParameter)
                 // ESP_LOGI("ESP", "cnt = %d\n", cnt);
                 Encoder_queue_write(cnt);
                 xSemaphoreGive(mutex);
-
-                // key = _74HC165_read_data(&HC165_encoder_pin);
-                // // printf("key = %d\n", key);
-                // // 物理加热按键触发
-                // if((key | 0xfe) == 0xfe)
-                // {
-                //     vTaskDelay(pdMS_TO_TICKS(1000));
-                //     if((key | 0xfe) == 0xfe)
-                //     {
-                //         if(Mode_change_button_read() == BUTTON_AUTO_READY_MODE)
-                //         {
-                //             manual_mode_start_mailbox_write();
-                //             while((key | 0xfe) == 0xfe)
-                //             {
-                //                 key = _74HC165_read_data(&HC165_encoder_pin);
-                //                 vTaskDelay(pdMS_TO_TICKS(150));
-                //             }
-                //         }
-                //         else if(Mode_change_button_read() == BUTTON_MANUAL_READY_MODE)
-                //         {
-                //             timer_start_button_event();
-                //             while((key | 0xfe) == 0xfe)
-                //             {
-                //                 key = _74HC165_read_data(&HC165_encoder_pin);
-                //                 vTaskDelay(pdMS_TO_TICKS(150));
-                //             }
-                //         }
-                //     }
-                // }
-                // // 物理模式切换按键触发
-                // if((key | 0xfd) == 0xfd)
-                // {
-                //     vTaskDelay(pdMS_TO_TICKS(150));
-                //     if((key | 0xfd) == 0xfd)
-                //     {
-                //         state_mode_change = Mode_change_button_read();
-                //         if(state_mode_change == BUTTON_AUTO_READY_MODE)
-                //         {
-                //             state_mode_change = BUTTON_AUTO_MODE;
-                //             Mode_change_button_write(state_mode_change);
-                //             while((key | 0xfd) == 0xfd)
-                //             {
-                //                 vTaskDelay(pdMS_TO_TICKS(150));
-                //                 key = _74HC165_read_data(&HC165_encoder_pin);
-                //             }
-                //         }
-                //         else if(state_mode_change == BUTTON_MANUAL_READY_MODE)
-                //         {
-                //             state_mode_change = BUTTON_MANUAL_MODE;
-                //             Mode_change_button_write(state_mode_change);
-                //             while((key | 0xfd) == 0xfd)
-                //             {
-                //                 vTaskDelay(pdMS_TO_TICKS(150));
-                //                 key = _74HC165_read_data(&HC165_encoder_pin);
-                //             }
-                //         }    
-                //         // printf("state_mode_change: %d\n", state_mode_change);
-                //     }
-                // }
         }
     }
 }

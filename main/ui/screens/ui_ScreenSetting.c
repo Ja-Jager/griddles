@@ -339,7 +339,7 @@ void ui_ScreenSetting_screen_init(void)
     lv_obj_set_style_border_width(ui_Panel_Slider, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_Slider_Print_Speed = lv_slider_create(ui_Panel_Slider);
-    lv_slider_set_range(ui_Slider_Print_Speed, -3, 3);
+    lv_slider_set_range(ui_Slider_Print_Speed, -25, 25);
     lv_obj_set_width(ui_Slider_Print_Speed, 475);
     lv_obj_set_height(ui_Slider_Print_Speed, 35);
     lv_obj_set_align(ui_Slider_Print_Speed, LV_ALIGN_CENTER);
@@ -611,7 +611,7 @@ void ui_ScreenSetting_screen_init(void)
     lv_obj_set_x(ui_Label_Fan_3, 0);
     lv_obj_set_y(ui_Label_Fan_3, 300);
     lv_obj_set_align(ui_Label_Fan_3, LV_ALIGN_TOP_MID);
-    lv_label_set_text(ui_Label_Fan_3, _("Touch Screen"));
+    lv_label_set_text(ui_Label_Fan_3, _("Temperature Calibration"));
     lv_label_set_recolor(ui_Label_Fan_3, "true");
     lv_obj_set_style_text_color(ui_Label_Fan_3, lv_color_hex(0xD2DCF2), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label_Fan_3, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -624,7 +624,8 @@ void ui_ScreenSetting_screen_init(void)
     lv_obj_set_x(ui_Switch_Fan_3, 0);
     lv_obj_set_y(ui_Switch_Fan_3, 330);
     lv_obj_set_align(ui_Switch_Fan_3, LV_ALIGN_TOP_MID);
-    lv_obj_add_state(ui_Switch_Fan_3, LV_STATE_CHECKED | LV_STATE_DISABLED);       /// States
+    // lv_obj_add_state(ui_Switch_Fan_3, LV_STATE_CHECKED | LV_STATE_DISABLED);       /// States
+    lv_obj_add_state(ui_Switch_Fan_3, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_Switch_Fan_3, lv_color_hex(0x191D26), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_Switch_Fan_3, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
@@ -669,5 +670,4 @@ void ui_ScreenSetting_screen_init(void)
     lv_obj_add_event_cb(ui_Slider_Print_Speed, ui_event_Slider_Print_Speed, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_Switch_Light, ui_event_Switch_Light, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_Switch_Demo_Mode, ui_event_Switch_Demo_Mode, LV_EVENT_ALL, NULL);
-
 }

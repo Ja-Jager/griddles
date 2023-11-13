@@ -36,7 +36,7 @@
 #undef LVGL_BENCHMARK
 
 #define TAG "ESP-EXAMPLE"
-#define VERSION_NUMBER "v1.1.0"
+#define VERSION_NUMBER "v1.1.1"
 
 /*******************************************************************************
  * Private functions
