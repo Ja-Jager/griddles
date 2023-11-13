@@ -392,7 +392,7 @@ void ui_ScreenSetting_screen_init(void)
     lv_obj_set_x(ui_Label_Print_Speed_Number, -30);
     lv_obj_set_y(ui_Label_Print_Speed_Number, -10);
     lv_obj_set_align(ui_Label_Print_Speed_Number, LV_ALIGN_TOP_RIGHT);
-    lv_label_set_text(ui_Label_Print_Speed_Number, "0 C°");
+    lv_label_set_text(ui_Label_Print_Speed_Number, "0 K");
     lv_label_set_recolor(ui_Label_Print_Speed_Number, "true");
     lv_obj_set_style_text_color(ui_Label_Print_Speed_Number, lv_color_hex(0xD2DCF2), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label_Print_Speed_Number, 255, LV_PART_MAIN | LV_STATE_DEFAULT);

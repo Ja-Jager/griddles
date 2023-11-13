@@ -205,6 +205,8 @@ void CallDropdownMotorLeftRightManual(lv_event_t * e);
 
 void CallDropdownMotorLeftRightAuto(lv_event_t * e);
 
+void TemperatureCalibrationSlider(lv_event_t *e);
+
 esp_err_t lv_obj_whether_ban_animation(const lv_obj_t * obj, bool animation_will_be_ban);
 
 #ifdef __cplusplus
