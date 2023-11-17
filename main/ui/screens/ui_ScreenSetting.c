@@ -670,4 +670,5 @@ void ui_ScreenSetting_screen_init(void)
     lv_obj_add_event_cb(ui_Slider_Print_Speed, ui_event_Slider_Print_Speed, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_Switch_Light, ui_event_Switch_Light, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_Switch_Demo_Mode, ui_event_Switch_Demo_Mode, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_Switch_Fan_3, ui_event_Switch_Calibration_Temperature, LV_EVENT_ALL, NULL);
 }

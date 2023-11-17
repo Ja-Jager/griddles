@@ -2,8 +2,10 @@
 #include "driver/spi_master.h"
 #include <driver/gpio.h>
 #include "spi_mod.h"
+#include "nvs_component.h"
 
 QueueHandle_t Main_temperature_Mailbox; // 主发热管温度
+QueueHandle_t Main_temperature_calibration_Mailbox; // 主发热管温度
 TaskHandle_t xHandle_main = NULL; // 主发热管传参
 double Max6675_Read_Main = 0;        /* 主电热丝 Max6675温度 */
 
@@ -18,6 +20,17 @@ double Max6675_Read_Main = 0;        /* 主电热丝 Max6675温度 */
 void temp_main_task(void *pvParams) // 主发热管温度检测任务
 {
     NTC_thermistor_queue_write(295.15);
+    int temp_calibration = 0;
+    if(nvs_read_i8("Calibration", &temp_calibration) == ESP_ERR_NVS_NOT_FOUND)
+    {
+        nvs_write_i8("Calibration", 0);
+    }
+    if(temp_calibration > 127)
+    {
+        temp_calibration = temp_calibration - 256;
+    }
+    // printf("temp_calibration = %d\n", temp_calibration);
+    NTC_thermistor_calibration_queue_write(temp_calibration);
 
     spi_device_handle_t spi = (spi_device_handle_t)pvParams;
     uint16_t data;
@@ -45,7 +58,7 @@ void temp_main_task(void *pvParams) // 主发热管温度检测任务
             res >>= 3;
             Max6675_Read_Main = res * 0.25;
             Max6675_Read_Main = Max6675_Read_Main + 273.15;
-            NTC_thermistor_queue_write(Max6675_Read_Main);
+            NTC_thermistor_queue_write(Max6675_Read_Main + (double)(NTC_thermistor_calibration_queue_read()));
             // ESP_LOGI(MAX6675_TAG, "SPI res = %d main_temp = %f\n", res,res * 0.25);
         }
         vTaskDelay(pdMS_TO_TICKS(1000));
@@ -62,6 +75,7 @@ void temp_main_task(void *pvParams) // 主发热管温度检测任务
 void Max6675_init(void)
 {
     Main_temperature_Mailbox = xQueueCreate(1, sizeof(double));
+    Main_temperature_calibration_Mailbox = xQueueCreate(1, sizeof(int));
 
     TEM_CSA_OUT;
     TEM_SCK_OUT;
@@ -83,3 +97,14 @@ double NTC_thermistor_queue_read(void) // 从队列读
     return Main_temperature;
 }
 
+void NTC_thermistor_calibration_queue_write(int calibration_value)
+{
+    xQueueOverwrite(Main_temperature_calibration_Mailbox, &calibration_value);
+}
+
+int NTC_thermistor_calibration_queue_read(void)
+{
+    int calibration_value;
+    xQueuePeek(Main_temperature_calibration_Mailbox, &calibration_value, 0);
+    return calibration_value;
+}

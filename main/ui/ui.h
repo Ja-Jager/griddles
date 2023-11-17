@@ -147,6 +147,7 @@ void ui_event_Switch_Demo_Mode(lv_event_t * e);
 extern lv_obj_t * ui_Switch_Demo_Mode;
 extern lv_obj_t * ui_Label_Fan_2;
 extern lv_obj_t * ui_Switch_Fan_2;
+void ui_event_Switch_Calibration_Temperature(lv_event_t * e);
 extern lv_obj_t * ui_Label_Fan_3;
 extern lv_obj_t * ui_Switch_Fan_3;
 // SCREEN: ui_ScreenMenuConfiguration

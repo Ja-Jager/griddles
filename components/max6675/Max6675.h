@@ -41,6 +41,9 @@
 void NTC_thermistor_queue_write(double temperature);
 double NTC_thermistor_queue_read(void); // 从队列读
 
+void NTC_thermistor_calibration_queue_write(int calibration_value);
+int NTC_thermistor_calibration_queue_read(void);
+
 void Max6675_init(void); /* Max6675 初始化函数 */
 
 #endif /* MAIN_MAX6675_H_ */

@@ -123,6 +123,9 @@ void Temperature_Unit_Change(lv_event_t * e);
  */
 void DemoModeOnOFF(lv_event_t * e);
 
+/* 温度校准开关触发 */
+void TemperatureCalibrationOnOFF(lv_event_t * e);
+
 /**
  * @brief 新增菜单键触发
  *

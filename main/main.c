@@ -30,7 +30,7 @@ void UI_task(void *pvParameters)
 
     // 自动操作初始化显示
     food_menu_item_config temporary_menu = menu_search_by_sequence(0); // 选择默认鸡块菜单
-    double TargetTemperature = temporary_menu.target_temperature;
+    double TargetTemperature = 450;
 
     lv_obj_add_flag(ui_DropdownMotorLeftRightAuto, LV_OBJ_FLAG_HIDDEN);     /// Flags
     lv_obj_add_flag(ui_DropdownMotorLeftRightManual, LV_OBJ_FLAG_HIDDEN);     /// Flags
@@ -104,6 +104,10 @@ void UI_task(void *pvParameters)
     /* 当前屏幕 */
     lv_obj_t *active_screen;
     uint16_t MenuRollerChooseSelectedOption = 0;
+
+    // printf("Calibration: %d\n", NTC_thermistor_calibration_queue_read());
+    lv_label_set_text_fmt(ui_Label_Print_Speed_Number, "%d K", NTC_thermistor_calibration_queue_read());
+    lv_slider_set_value(ui_Slider_Print_Speed, NTC_thermistor_calibration_queue_read(), LV_ANIM_OFF);
 
     lv_obj_add_event_cb(ui_ScreenAuto, my_ScreenAuto_cb, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_ScreenManual, my_ScreenManual_cb, LV_EVENT_ALL, NULL);
@@ -225,7 +229,7 @@ void app_main(void)
 
     // liftTube_spillOil_overHeat_init();
     /* Test menu read NVS when first power on */
-    menu_test_for_first_power_on("food_menu_nvs");
+    // menu_test_for_first_power_on("food_menu_nvs");
 
     // /* Initialize NTC_thermistor */
     // NTC_thermistor_init();

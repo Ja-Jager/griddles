@@ -12,6 +12,7 @@
 #include "menu.h"
 #include "PID.h"
 #include "math.h"
+#include "Max6675.h"
 #include "ui_events.h"
 #include "string.h"
 #include "nvs_component.h"
@@ -393,7 +394,7 @@ void refresh_lv_i18n_label_text(void)
     lv_label_set_text(ui_Label_Light, _("Unit"));
     lv_label_set_text(ui_Label_Demo_Mode, _("Demo Mode"));
     lv_label_set_text(ui_Label_Fan_2, _("Hi Limit Cut-OFF"));
-    lv_label_set_text(ui_Label_Fan_3, _("Touch Screen"));
+    lv_label_set_text(ui_Label_Fan_3, _("Calibration"));
 	// lv_label_set_text(ui_LabelDropFoodReminder, _("Manual Operation"));
 	// lv_label_set_text(ui_LabelDropFood, _("Drop Food"));
 	// lv_label_set_text(ui_LabelPressAnywhereToExit, _("Press anywhere or any button to exit"));
@@ -683,6 +684,29 @@ void CallDropdownMotorLeftRightAuto(lv_event_t * e)
 	// 		case 2: motor_left_right_queue_write(motor_both); break;
 	// 	}
 	// }
+}
+
+void TemperatureCalibrationOnOFF(lv_event_t * e)
+{
+	if(lv_obj_has_state(ui_Switch_Fan_3, LV_STATE_CHECKED))
+	{
+		lv_obj_clear_state(ui_Slider_Print_Speed, LV_STATE_DISABLED);
+	}
+	else
+	{
+		lv_obj_add_state(ui_Slider_Print_Speed, LV_STATE_DISABLED);
+		// 定义一个字符串，然后将一个数字转换成字符串并赋值
+		// int i = 0;
+		// printf("Temperature Calibration: %d\n", i);
+		nvs_write_i8("Calibration", lv_slider_get_value(ui_Slider_Print_Speed));
+		// nvs_read_i16("Calibration", &i);
+		// printf("Temperature Calibration: %d\n", i);
+	}
+}
+
+void TemperatureCalibrationSlider(lv_event_t *e)
+{
+	NTC_thermistor_calibration_queue_write(lv_slider_get_value(ui_Slider_Print_Speed));
 }
 
 esp_err_t lv_obj_whether_ban_animation(const lv_obj_t * obj, bool animation_will_be_ban)

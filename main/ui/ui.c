@@ -601,6 +601,15 @@ void ui_event_Switch_Demo_Mode(lv_event_t * e)
         DemoModeOnOFF(e);
     }
 }
+void ui_event_Switch_Calibration_Temperature(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_VALUE_CHANGED)
+    {
+        TemperatureCalibrationOnOFF(e);
+    }
+}
 void ui_event_BTNAutoMenuPrint3(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
