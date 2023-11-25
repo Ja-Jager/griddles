@@ -32,8 +32,8 @@ void UI_task(void *pvParameters)
     food_menu_item_config temporary_menu = menu_search_by_sequence(0); // 选择默认鸡块菜单
     double TargetTemperature = 450;
 
-    lv_obj_add_flag(ui_DropdownMotorLeftRightAuto, LV_OBJ_FLAG_HIDDEN);     /// Flags
-    lv_obj_add_flag(ui_DropdownMotorLeftRightManual, LV_OBJ_FLAG_HIDDEN);     /// Flags
+    // lv_obj_add_flag(ui_DropdownMotorLeftRightAuto, LV_OBJ_FLAG_HIDDEN);     /// Flags
+    // lv_obj_add_flag(ui_DropdownMotorLeftRightManual, LV_OBJ_FLAG_HIDDEN);     /// Flags
 
     if (temperature_unit == Temperature_Unit_Fahrenheit)
     {

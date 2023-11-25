@@ -451,7 +451,8 @@ void ui_ScreenManual_screen_init(void)
     lv_obj_set_x(ui_DropdownMotorLeftRightManual, -262);
     lv_obj_set_y(ui_DropdownMotorLeftRightManual, -117);
     lv_obj_set_align(ui_DropdownMotorLeftRightManual, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_DropdownMotorLeftRightManual, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+//     lv_obj_add_flag(ui_DropdownMotorLeftRightManual, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_add_flag(ui_DropdownMotorLeftRightManual, LV_OBJ_FLAG_HIDDEN);     /// Flags  
 
     lv_obj_add_event_cb(ui_BTNAutoMenuMove1, ui_event_BTNAutoMenuMove1, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_BTNAutoMenuSetting1, ui_event_BTNAutoMenuSetting1, LV_EVENT_ALL, NULL);
