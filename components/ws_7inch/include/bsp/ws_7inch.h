@@ -113,7 +113,7 @@
 /* V2.2.0 */
 /* I2C */
 #define BSP_I2C_SCL (GPIO_NUM_12)
-#define BSP_I2C_SDA (GPIO_NUM_13)
+#define BSP_I2C_SDA (GPIO_NUM_13) 
 
 /* Display */
 #define BSP_LCD_WIDTH (16)
@@ -141,6 +141,38 @@
 #define BSP_LCD_WAIT (GPIO_NUM_11)
 #define BSP_LCD_BL (GPIO_NUM_NC)
 #define BSP_LCD_TP_INT (GPIO_NUM_10)
+
+// /* general band */
+// /* I2C */
+// #define BSP_I2C_SCL (GPIO_NUM_17)
+// #define BSP_I2C_SDA (GPIO_NUM_18)
+
+// /* Display */
+// #define BSP_LCD_WIDTH (16)
+// #define BSP_LCD_DB0 (GPIO_NUM_42)
+// #define BSP_LCD_DB1 (GPIO_NUM_41)
+// #define BSP_LCD_DB2 (GPIO_NUM_40)
+// #define BSP_LCD_DB3 (GPIO_NUM_39)
+// #define BSP_LCD_DB4 (GPIO_NUM_38)
+// #define BSP_LCD_DB5 (GPIO_NUM_37)
+// #define BSP_LCD_DB6 (GPIO_NUM_36)
+// #define BSP_LCD_DB7 (GPIO_NUM_35)
+// #define BSP_LCD_DB8 (GPIO_NUM_45)
+// #define BSP_LCD_DB9 (GPIO_NUM_48)
+// #define BSP_LCD_DB10 (GPIO_NUM_47)
+// #define BSP_LCD_DB11 (GPIO_NUM_21)
+// #define BSP_LCD_DB12 (GPIO_NUM_14)
+// #define BSP_LCD_DB13 (GPIO_NUM_13)
+// #define BSP_LCD_DB14 (GPIO_NUM_12)
+// #define BSP_LCD_DB15 (GPIO_NUM_11)
+// #define BSP_LCD_CS (GPIO_NUM_NC)
+// #define BSP_LCD_DC (GPIO_NUM_10)
+// #define BSP_LCD_WR (GPIO_NUM_9)
+// #define BSP_LCD_RD (GPIO_NUM_NC)
+// #define BSP_LCD_RST (GPIO_NUM_46)
+// #define BSP_LCD_WAIT (GPIO_NUM_8)
+// #define BSP_LCD_BL (GPIO_NUM_NC)
+// #define BSP_LCD_TP_INT (GPIO_NUM_3)
 
 #ifdef __cplusplus
 extern "C"
