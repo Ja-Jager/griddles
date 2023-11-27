@@ -32,7 +32,7 @@ QueueHandle_t handle_queue_locate_language;
 #define Temperature_Unit_Celsius 0
 
 // 温度单位
-bool temperature_unit = Temperature_Unit_Fahrenheit;
+bool temperature_unit = Temperature_Unit_Celsius;
 
 lv_obj_t * mbox_preheating = NULL;
 // lv_obj_t * mbox_cooling;
