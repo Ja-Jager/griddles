@@ -101,8 +101,9 @@ void ui_ScreenManual_screen_init(void)
     lv_obj_set_width(ui_BTNAutoMenuMove1, 79);
     lv_obj_set_height(ui_BTNAutoMenuMove1, 162);
     lv_obj_set_align(ui_BTNAutoMenuMove1, LV_ALIGN_LEFT_MID);
-    lv_obj_add_flag(ui_BTNAutoMenuMove1, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_BTNAutoMenuMove1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+//     lv_obj_add_flag(ui_BTNAutoMenuMove1, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+//     lv_obj_clear_flag(ui_BTNAutoMenuMove1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_add_state(ui_BTNAutoMenuMove1, LV_STATE_DISABLED);
     lv_obj_set_style_opa(ui_BTNAutoMenuMove1, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_BTNAutoMenuSetting1 = lv_img_create(ui_ScreenManual);
@@ -318,14 +319,14 @@ void ui_ScreenManual_screen_init(void)
     lv_obj_set_x(ui_LabelManualTargetTemperature, 5);
     lv_obj_set_y(ui_LabelManualTargetTemperature, -10);
     lv_obj_set_align(ui_LabelManualTargetTemperature, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_LabelManualTargetTemperature, "350°F");
+    lv_label_set_text(ui_LabelManualTargetTemperature, "176°C");
     lv_obj_set_style_text_color(ui_LabelManualTargetTemperature, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_LabelManualTargetTemperature, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_LabelManualTargetTemperature, &ui_font_Montserrat_64, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_SliderManualTargetTemperature = lv_slider_create(ui_ArcTemperatureShow2);
-    lv_slider_set_range(ui_SliderManualTargetTemperature, 212, 464);
-    lv_slider_set_value(ui_SliderManualTargetTemperature, 350, LV_ANIM_OFF);
+    lv_slider_set_range(ui_SliderManualTargetTemperature, 100, 240);
+    lv_slider_set_value(ui_SliderManualTargetTemperature, 176, LV_ANIM_OFF);
     if(lv_slider_get_mode(ui_SliderManualTargetTemperature) == LV_SLIDER_MODE_RANGE) lv_slider_set_left_value(
             ui_SliderManualTargetTemperature, 0, LV_ANIM_OFF);
     lv_obj_set_height(ui_SliderManualTargetTemperature, 35);
