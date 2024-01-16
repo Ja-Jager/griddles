@@ -86,7 +86,7 @@ void countdownTask(void *pvParameters)
 						if(cooking_time_remaining == 0) // 倒计时总时长为0:0的情况
 						{
 							// cooking_time_remaining = 0;
-							buzzer_occasion_queue_write(buzzer_countdown_over);
+							// buzzer_occasion_queue_write(buzzer_countdown_over);
 						}
 					}
 				}

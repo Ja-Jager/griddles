@@ -17,7 +17,7 @@
 #define BUZZER_TIMER_FREQ_DEFAULT_KEY_NUM 1
 
 #define BUZZER_CHANNEL_NUM LEDC_CHANNEL_0
-#define BUZZER_CHANNEL_GPIO_NUM 7
+#define BUZZER_CHANNEL_GPIO_NUM 14
 #define BUZZER_CHANNEL_SPEED_MODE LEDC_LOW_SPEED_MODE
 #define BUZZER_CHANNEL_HPOINT 0
 #define BUZZER_CHANNEL_TIMER_SOURCE LEDC_TIMER_0
@@ -147,6 +147,6 @@ esp_err_t buzzer_occasion_queue_write(enum buzzer_occasion_select current_buzzer
 
 void buzzer_countdown_over_function(void);
 
-void buzzer_drop_approve_function(void);
+// void buzzer_drop_approve_function(void);
 
 #endif // BUZZER_H

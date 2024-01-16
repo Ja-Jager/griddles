@@ -47,17 +47,6 @@ void task_buzzer(void *arg)
             buzzer_countdown_over_function();
             buzzer_occasion_queue_write(buzzer_null);
         }
-        else if(current_buzzer_occasion == buzzer_drop_approve)
-        {
-            if((read_manual_drop_approve() == manual_drop_wait_approve) || (countdown_drop_approve_read() == Timer_Drop_Wait_Disapprove))
-            {
-                buzzer_drop_approve_function();
-            }
-            else
-            {
-                buzzer_occasion_queue_write(buzzer_null);
-            }
-        }
         vTaskDelay(250 / portTICK_PERIOD_MS);
     }
 }
@@ -93,10 +82,10 @@ esp_err_t buzzer_occasion_queue_write(enum buzzer_occasion_select current_buzzer
 
 void buzzer_countdown_over_function(void)
 {
-    buzzer(NOTE_G4, 7168, 1, 1, 3);
+    buzzer(NOTE_G4, 7168, 1, 1, 2);
 }
 
-void buzzer_drop_approve_function(void)
-{
-    buzzer(NOTE_G4, 7168, 1, 1, 1);
-}
+// void buzzer_drop_approve_function(void)
+// {
+//     buzzer(NOTE_G4, 7168, 1, 1, 1);
+// }

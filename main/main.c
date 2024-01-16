@@ -363,7 +363,7 @@ void manual_mode_countdown_update_UI(lv_timer_t *timer)
             if(read_manual_drop_approve() == manual_drop_disapprove)
             {
                 // write_manual_drop_approve(manual_drop_wait_approve);
-                buzzer_occasion_queue_write(buzzer_drop_approve);
+                // buzzer_occasion_queue_write(buzzer_drop_approve);
             }
         }
     }
