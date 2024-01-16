@@ -3,7 +3,7 @@
 
 #define DMA_CHAN SPI_DMA_CH_AUTO
 
-#define MDIO 14
+#define MDIO 1
 #define SCK 16
 #define CSA 15
 

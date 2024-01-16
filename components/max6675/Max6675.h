@@ -25,7 +25,7 @@
 /* 需要用到的引脚 */
 #define CSA 15
 #define SCK 16
-#define MDIO 14
+#define MDIO 1
 
 /* 设置片选信号 CSn 和时钟信号 SCK 对应引脚为输出状态 */
 /* 设置数据信号 MDIO 对应引脚为输入状态 */

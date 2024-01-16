@@ -58,6 +58,7 @@ void temp_main_task(void *pvParams) // 主发热管温度检测任务
             res >>= 3;
             Max6675_Read_Main = res * 0.25;
             Max6675_Read_Main = Max6675_Read_Main + 273.15;
+            // Max6675_Read_Main = 520;
             NTC_thermistor_queue_write(Max6675_Read_Main + (double)(NTC_thermistor_calibration_queue_read()));
             // ESP_LOGI(MAX6675_TAG, "SPI res = %d main_temp = %f\n", res,res * 0.25);
         }
