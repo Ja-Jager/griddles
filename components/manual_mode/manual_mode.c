@@ -54,7 +54,7 @@ void manual_mode_countdown_Task(void *pvParam)
 			// now_temperature = 200;
 		#endif
 
-		if(now_temperature > (SetTemperature - 2)) //批准手动操作倒计时
+		if(now_temperature > (SetTemperature - 20)) //批准手动操作倒计时
 		{
 			current_manual_approve_state = manual_preheat_approve;
 		}
